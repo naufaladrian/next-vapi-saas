@@ -14,7 +14,7 @@ const SearchInput = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
+    setTimeout(() => {
       if (searchQuery) {
         const newUrl = formUrlQuery({
           params: searchParams.toString(),
@@ -24,7 +24,7 @@ const SearchInput = () => {
 
         router.push(newUrl, { scroll: false });
       } else {
-        if (pathname === "companions") {
+        if (pathname === "/companions") {
           const newUrl = removeKeysFromUrlQuery({
             params: searchParams.toString(),
             keysToRemove: ["topic"],
